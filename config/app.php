@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'GMT+7',
 
     /*
     |--------------------------------------------------------------------------
@@ -195,6 +195,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+
+
     ],
 
     /*
@@ -210,6 +213,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
     ])->toArray(),
 
 ];

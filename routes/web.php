@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+
+        $d =   \GoogleMaps::load('nearbysearch')
+
+                 ->setParam([
+                     'location'  => '-7.322491345983619, 108.22066083863699',
+                     'radius'    => '25000',
+                     'name'      => 'service hp',
+
+                 ])
+                 ->get();
+
+        dd(json_decode($d));
+
     return view('welcome');
 });
