@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
-    use HasFactory;
+
+    /**
+     * Get the consumer stores for the branch.
+     */
+    public function stores()
+    {
+        return $this->hasMany(Store::class);
+    }
 }

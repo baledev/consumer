@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\FetchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get(
+    '/',
+    [MainController::class, 'index']
+)->name('main');
+
+Route::get(
+    'fetch/{id}',
+    [FetchController::class, 'fetch']
+)->name('fetch');
+
+/* Route::get('/', function () {
 
 
         $d =   \GoogleMaps::load('nearbysearch')
@@ -29,4 +41,6 @@ Route::get('/', function () {
         dd(json_decode($d));
 
     return view('welcome');
-});
+}); */
+
+
