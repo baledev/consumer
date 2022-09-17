@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('branch_id')->constrained();
             $table->string('place_id');
             $table->string('name');
             $table->string('latitude');
             $table->string('longitude');
             $table->string('address');
             $table->string('map');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
